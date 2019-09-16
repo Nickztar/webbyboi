@@ -5,10 +5,10 @@
     font-family: 'Poppins', sans-serif;
 }
 header{
-    padding: 10px 0 10px 70px;
+    /*padding: 10px 0 10px 70px;*/
     line-height: 1.1;
     display: grid;
-    grid-template-columns: 20vw 1fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr;
     grid-template-rows: 1fr 1fr;
     grid-template-areas: 
     "header1 none1 none2"
@@ -16,42 +16,50 @@ header{
     max-height: 10vh;
 }
 header .logo, .logowork{
-    font-size: 35px;
-    font-family: 'Exo', sans-serif;
-    font-weight: 800;
+    font-size: 4vw;
+    font-weight: 700;
     color: #1b1b1b;
     font-weight: 500 bold;
-    text-shadow: 0px 10px 10px #47494973;
-    text-align: left;
+    text-shadow: 0px 10px 20px #c5cccc86;
+    text-align: center;
+    opacity: 0.8;
+}
+header .logowork{
+    font-size: 3vw;
 }
 body{
+    background: #000;
     background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
-
+    background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898; 
+    background-blend-mode: multiply,multiply;
 }
 main {
     overflow: visible;
-    padding-top: 15vh;
+    padding-top: 10vh;
     width: 80vw;
     height: 90vh;
     margin: auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     grid-template-areas: 
     "face1 face2 face3"
     "back1 back2 back3";
     grid-column-gap: 4vw;
 }
 .back{
+    display: grid;
+    grid-template-rows: auto;
+    justify-items: center;
     border-radius: 20px;
     position: relative;
-    width: 390px;
-    height: 190px;
+    min-width: 20vw;
+    min-height: 18vh;
     color:#37474f;
     transform: translateY(-100px);
     background-color:#e5ffff;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
-    font-size: 17px;
+    font-size: auto;
     opacity: 0;
     font-weight: 500;
     z-index: 0;
@@ -62,13 +70,14 @@ main {
     position: relative;
     transition: 0.3s ease-in;
     background-color: transparent;
-    max-width: 390px;
-    max-height: 190px;
+    min-width: 20vw;
+    min-height: 18vh;
     padding: 5px;
     align-items: center;
     text-align: center;
     transform: translateY(100px);
-    box-shadow: 0 20px 35px rgba(0, 0, 0, 1);
+    box-shadow: 0 20px 50px rgba(233, 225, 225, 0.8);
+    box-shadow: 0 30px 50px rgba(0, 0, 0, 1);
     z-index: 1;
     opacity: 0.4;
 }
@@ -77,7 +86,7 @@ main {
     transform: translateY(0);
     background-color: #d81b60;
     border-radius: 20px 20px 0 0;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
 }
 .card1:hover .back, .card2:hover .back, .card3:hover .back{
     transform: translateY(-2vh);
@@ -88,8 +97,8 @@ main {
     padding-top: 1vh;
 }
 .face img .facetext{
-
     background-color: transparent;
+    opacity: 0.6;
 }
 .back p{
     margin: 2vh 0 2vh 0;
@@ -97,37 +106,77 @@ main {
     padding: 2vh 2vh 0 2vh;
 }
 .back a{
-    font-weight: 500 bold;
-    color: #d81b60;
+    border-radius: 10px;
+    position: relative;
+    font-weight: 500;
+    color: #e5ffff;
+    background: #1b1b1b;
     text-decoration: none;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 20px;
+    border: 2px solid #000;
     margin: 2vh;
-    padding: 7px;
-    background: rgba(0, 0, 0, 0.3);
+    padding: 3px 5px;
 }
 .back a:hover{
+    font-weight: 500;
     transition: 0.5s ease;
-    color: #e5ffff;
-    background: rgba(216,27,96,1);
+    color: #000;
+    background: #d81b60;
 }
-@media screen and (max-width: 1620px){
-    .mains{
-        padding-top: 5vh;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr;
-        grid-template-areas: 
-        "face1 none face2"
-        "back1 none back2"
-        "none face3 none"
-        "none back3 none";
+@media screen and (max-width: 850px){
+    main{
+        padding-top: 02vh;
+    }
+
+}
+@media screen and (max-width: 740px){
+    body{
+        background-attachment: fixed; 
+    }
+    main{
+        padding-top: 0vh;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-areas:
+        "card1 card1 card2 card2"
+        ". card3 card3 .";
+    }
+    .card1{
+        grid-area: card1;
+    }
+    .card2{
+        grid-area: card2;
+    }
+    .card3{
+        grid-area: card3;
+    }
+}
+@media screen and (max-width: 450px){
+    body{
+        background-attachment: fixed; 
+    }
+    main{
+        padding-top: 0vh;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-areas:
+        "card1"
+        "card2"
+        "card3";
+    }
+    .card1{
+        grid-area: card1;
+    }
+    .card2{
+        grid-area: card2;
+    }
+    .card3{
+        grid-area: card3;
     }
 }
 .logo{
-    grid-area: header1;
+    grid-area: none1;
 }
 .logowork{
-    grid-area: header2;
+    grid-area: none3;
 }
 #cvface{
     grid-area: face1;
