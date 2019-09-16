@@ -63,7 +63,7 @@ main {
     opacity: 0;
     font-weight: 500;
     z-index: 0;
-    transition: 0.4s ease-out;
+    transition: 0.4s ease-out 0.2s;
 }
 .face{
     border-radius: 20px;
